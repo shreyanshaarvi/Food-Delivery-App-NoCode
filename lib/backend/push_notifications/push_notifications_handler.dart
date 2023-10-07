@@ -117,17 +117,9 @@ final parametersBuilderMap =
   'Login': ParameterData.none(),
   'HomePage': ParameterData.none(),
   'ProductDetail': ParameterData.none(),
+  'OrderTracker': ParameterData.none(),
   'OrderConfirm': ParameterData.none(),
-  'OrderTracker': (data) async => ParameterData(
-        allParams: {
-          'currenLocation': getParameter<LatLng>(data, 'currenLocation'),
-        },
-      ),
-  'DeliveryBoyAccepting': (data) async => ParameterData(
-        allParams: {
-          'orderAsinee': getParameter<DocumentReference>(data, 'orderAsinee'),
-        },
-      ),
+  'cartPage': ParameterData.none(),
 };
 
 Map<String, dynamic> getInitialParameterData(Map<String, dynamic> data) {

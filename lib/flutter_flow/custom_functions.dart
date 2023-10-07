@@ -14,7 +14,6 @@ import '/backend/schema/structs/index.dart';
 import '/auth/firebase_auth/auth_util.dart';
 
 String? removeOtherWord(String? latlng) {
-  // remove word like "LatLng" ," (" , ":" , "lat:"  , "lng:"  , from the text
   latlng = latlng?.replaceAll('LatLng', '');
   latlng = latlng?.replaceAll('(', '');
   latlng = latlng?.replaceAll(')', '');
@@ -27,25 +26,8 @@ String? removeOtherWord(String? latlng) {
 }
 
 double? revomeMfromtextinAPI(String? distance) {
-  // convert string to double by removing word from the string
   if (distance == null) return null;
   final regex = RegExp(r'[^\d\.]+');
   final result = distance.replaceAll(regex, '');
   return double.tryParse(result);
-}
-
-bool? checkforkm(String? distance) {
-  // check whether the word given has km word or not
-  if (distance == null) {
-    return null;
-  }
-  return distance.contains('km');
-}
-
-double? kmtom(double? distance) {
-  // km to m
-  if (distance == null) {
-    return null;
-  }
-  return distance * 1000;
 }

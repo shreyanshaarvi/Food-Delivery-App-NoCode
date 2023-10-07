@@ -9,14 +9,7 @@ import 'order_tracker_model.dart';
 export 'order_tracker_model.dart';
 
 class OrderTrackerWidget extends StatefulWidget {
-  const OrderTrackerWidget({
-    Key? key,
-    required this.latLang,
-    required this.currenLocation,
-  }) : super(key: key);
-
-  final List<LatLng>? latLang;
-  final LatLng? currenLocation;
+  const OrderTrackerWidget({Key? key}) : super(key: key);
 
   @override
   _OrderTrackerWidgetState createState() => _OrderTrackerWidgetState();
@@ -31,6 +24,8 @@ class _OrderTrackerWidgetState extends State<OrderTrackerWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => OrderTrackerModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -77,6 +72,16 @@ class _OrderTrackerWidgetState extends State<OrderTrackerWidget> {
           actions: [],
           centerTitle: true,
           elevation: 2.0,
+        ),
+        body: SafeArea(
+          top: true,
+          child: Align(
+            alignment: AlignmentDirectional(0.00, 0.00),
+            child: Text(
+              'Order Accepted',
+              style: FlutterFlowTheme.of(context).bodyMedium,
+            ),
+          ),
         ),
       ),
     );

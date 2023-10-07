@@ -122,25 +122,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           builder: (context, params) => ProductDetailWidget(),
         ),
         FFRoute(
+          name: 'OrderTracker',
+          path: '/orderTracker',
+          builder: (context, params) => OrderTrackerWidget(),
+        ),
+        FFRoute(
           name: 'OrderConfirm',
           path: '/orderConfirm',
           builder: (context, params) => OrderConfirmWidget(),
         ),
         FFRoute(
-          name: 'OrderTracker',
-          path: '/orderTracker',
-          builder: (context, params) => OrderTrackerWidget(
-            latLang: params.getParam<LatLng>('latLang', ParamType.LatLng, true),
-            currenLocation: params.getParam('currenLocation', ParamType.LatLng),
-          ),
-        ),
-        FFRoute(
-          name: 'DeliveryBoyAccepting',
-          path: '/deliveryBoyAccepting',
-          builder: (context, params) => DeliveryBoyAcceptingWidget(
-            orderAsinee: params.getParam('orderAsinee',
-                ParamType.DocumentReference, false, ['oderAssineee']),
-          ),
+          name: 'cartPage',
+          path: '/cartPage',
+          builder: (context, params) => CartPageWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );

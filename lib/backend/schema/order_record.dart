@@ -31,22 +31,10 @@ class OrderRecord extends FirestoreRecord {
   double get oPrice => _oPrice ?? 0.0;
   bool hasOPrice() => _oPrice != null;
 
-  // "riderRef" field.
-  DocumentReference? _riderRef;
-  DocumentReference? get riderRef => _riderRef;
-  bool hasRiderRef() => _riderRef != null;
-
-  // "is_riderAssined" field.
-  bool? _isRiderAssined;
-  bool get isRiderAssined => _isRiderAssined ?? false;
-  bool hasIsRiderAssined() => _isRiderAssined != null;
-
   void _initializeFields() {
     _orderName = snapshotData['orderName'] as String?;
     _refResturant = snapshotData['refResturant'] as DocumentReference?;
     _oPrice = castToType<double>(snapshotData['o_price']);
-    _riderRef = snapshotData['riderRef'] as DocumentReference?;
-    _isRiderAssined = snapshotData['is_riderAssined'] as bool?;
   }
 
   static CollectionReference get collection =>
@@ -86,16 +74,12 @@ Map<String, dynamic> createOrderRecordData({
   String? orderName,
   DocumentReference? refResturant,
   double? oPrice,
-  DocumentReference? riderRef,
-  bool? isRiderAssined,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'orderName': orderName,
       'refResturant': refResturant,
       'o_price': oPrice,
-      'riderRef': riderRef,
-      'is_riderAssined': isRiderAssined,
     }.withoutNulls,
   );
 
@@ -109,19 +93,12 @@ class OrderRecordDocumentEquality implements Equality<OrderRecord> {
   bool equals(OrderRecord? e1, OrderRecord? e2) {
     return e1?.orderName == e2?.orderName &&
         e1?.refResturant == e2?.refResturant &&
-        e1?.oPrice == e2?.oPrice &&
-        e1?.riderRef == e2?.riderRef &&
-        e1?.isRiderAssined == e2?.isRiderAssined;
+        e1?.oPrice == e2?.oPrice;
   }
 
   @override
-  int hash(OrderRecord? e) => const ListEquality().hash([
-        e?.orderName,
-        e?.refResturant,
-        e?.oPrice,
-        e?.riderRef,
-        e?.isRiderAssined
-      ]);
+  int hash(OrderRecord? e) =>
+      const ListEquality().hash([e?.orderName, e?.refResturant, e?.oPrice]);
 
   @override
   bool isValidKey(Object? o) => o is OrderRecord;

@@ -21,39 +21,20 @@ class RiderRecord extends FirestoreRecord {
   String get name => _name ?? '';
   bool hasName() => _name != null;
 
-  // "Riderslocation" field.
-  LatLng? _riderslocation;
-  LatLng? get riderslocation => _riderslocation;
-  bool hasRiderslocation() => _riderslocation != null;
+  // "currentLocation" field.
+  LatLng? _currentLocation;
+  LatLng? get currentLocation => _currentLocation;
+  bool hasCurrentLocation() => _currentLocation != null;
 
-  // "distanceFromResturant" field.
-  double? _distanceFromResturant;
-  double get distanceFromResturant => _distanceFromResturant ?? 0.0;
-  bool hasDistanceFromResturant() => _distanceFromResturant != null;
-
-  // "is_Accepted" field.
-  bool? _isAccepted;
-  bool get isAccepted => _isAccepted ?? false;
-  bool hasIsAccepted() => _isAccepted != null;
-
-  // "orderAssinee" field.
-  DocumentReference? _orderAssinee;
-  DocumentReference? get orderAssinee => _orderAssinee;
-  bool hasOrderAssinee() => _orderAssinee != null;
-
-  // "is_delivering" field.
-  bool? _isDelivering;
-  bool get isDelivering => _isDelivering ?? false;
-  bool hasIsDelivering() => _isDelivering != null;
+  // "riderID" field.
+  String? _riderID;
+  String get riderID => _riderID ?? '';
+  bool hasRiderID() => _riderID != null;
 
   void _initializeFields() {
     _name = snapshotData['name'] as String?;
-    _riderslocation = snapshotData['Riderslocation'] as LatLng?;
-    _distanceFromResturant =
-        castToType<double>(snapshotData['distanceFromResturant']);
-    _isAccepted = snapshotData['is_Accepted'] as bool?;
-    _orderAssinee = snapshotData['orderAssinee'] as DocumentReference?;
-    _isDelivering = snapshotData['is_delivering'] as bool?;
+    _currentLocation = snapshotData['currentLocation'] as LatLng?;
+    _riderID = snapshotData['riderID'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -91,20 +72,14 @@ class RiderRecord extends FirestoreRecord {
 
 Map<String, dynamic> createRiderRecordData({
   String? name,
-  LatLng? riderslocation,
-  double? distanceFromResturant,
-  bool? isAccepted,
-  DocumentReference? orderAssinee,
-  bool? isDelivering,
+  LatLng? currentLocation,
+  String? riderID,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
       'name': name,
-      'Riderslocation': riderslocation,
-      'distanceFromResturant': distanceFromResturant,
-      'is_Accepted': isAccepted,
-      'orderAssinee': orderAssinee,
-      'is_delivering': isDelivering,
+      'currentLocation': currentLocation,
+      'riderID': riderID,
     }.withoutNulls,
   );
 
@@ -117,22 +92,13 @@ class RiderRecordDocumentEquality implements Equality<RiderRecord> {
   @override
   bool equals(RiderRecord? e1, RiderRecord? e2) {
     return e1?.name == e2?.name &&
-        e1?.riderslocation == e2?.riderslocation &&
-        e1?.distanceFromResturant == e2?.distanceFromResturant &&
-        e1?.isAccepted == e2?.isAccepted &&
-        e1?.orderAssinee == e2?.orderAssinee &&
-        e1?.isDelivering == e2?.isDelivering;
+        e1?.currentLocation == e2?.currentLocation &&
+        e1?.riderID == e2?.riderID;
   }
 
   @override
-  int hash(RiderRecord? e) => const ListEquality().hash([
-        e?.name,
-        e?.riderslocation,
-        e?.distanceFromResturant,
-        e?.isAccepted,
-        e?.orderAssinee,
-        e?.isDelivering
-      ]);
+  int hash(RiderRecord? e) =>
+      const ListEquality().hash([e?.name, e?.currentLocation, e?.riderID]);
 
   @override
   bool isValidKey(Object? o) => o is RiderRecord;

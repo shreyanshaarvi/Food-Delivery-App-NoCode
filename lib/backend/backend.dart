@@ -5,13 +5,12 @@ import '../auth/firebase_auth/auth_util.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import 'schema/util/firestore_util.dart';
 
-import 'schema/near_location_record.dart';
-import 'schema/product_record.dart';
 import 'schema/order_record.dart';
 import 'schema/resturnat_name_record.dart';
-import 'schema/rider_record.dart';
-import 'schema/oder_assineee_record.dart';
 import 'schema/user_record.dart';
+import 'schema/rider_record.dart';
+import 'schema/resturant_record.dart';
+import 'schema/order_assinee_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -19,87 +18,12 @@ export 'schema/index.dart';
 export 'schema/util/firestore_util.dart';
 export 'schema/util/schema_util.dart';
 
-export 'schema/near_location_record.dart';
-export 'schema/product_record.dart';
 export 'schema/order_record.dart';
 export 'schema/resturnat_name_record.dart';
-export 'schema/rider_record.dart';
-export 'schema/oder_assineee_record.dart';
 export 'schema/user_record.dart';
-
-/// Functions to query NearLocationRecords (as a Stream and as a Future).
-Future<int> queryNearLocationRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      NearLocationRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<NearLocationRecord>> queryNearLocationRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      NearLocationRecord.collection,
-      NearLocationRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<NearLocationRecord>> queryNearLocationRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      NearLocationRecord.collection,
-      NearLocationRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-/// Functions to query ProductRecords (as a Stream and as a Future).
-Future<int> queryProductRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      ProductRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<ProductRecord>> queryProductRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      ProductRecord.collection,
-      ProductRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<ProductRecord>> queryProductRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      ProductRecord.collection,
-      ProductRecord.fromSnapshot,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
+export 'schema/rider_record.dart';
+export 'schema/resturant_record.dart';
+export 'schema/order_assinee_record.dart';
 
 /// Functions to query OrderRecords (as a Stream and as a Future).
 Future<int> queryOrderRecordCount({
@@ -175,6 +99,43 @@ Future<List<ResturnatNameRecord>> queryResturnatNameRecordOnce({
       singleRecord: singleRecord,
     );
 
+/// Functions to query UserRecords (as a Stream and as a Future).
+Future<int> queryUserRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserRecord>> queryUserRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserRecord.collection,
+      UserRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserRecord>> queryUserRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserRecord.collection,
+      UserRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
 /// Functions to query RiderRecords (as a Stream and as a Future).
 Future<int> queryRiderRecordCount({
   Query Function(Query)? queryBuilder,
@@ -212,75 +173,75 @@ Future<List<RiderRecord>> queryRiderRecordOnce({
       singleRecord: singleRecord,
     );
 
-/// Functions to query OderAssineeeRecords (as a Stream and as a Future).
-Future<int> queryOderAssineeeRecordCount({
+/// Functions to query ResturantRecords (as a Stream and as a Future).
+Future<int> queryResturantRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      OderAssineeeRecord.collection,
+      ResturantRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<OderAssineeeRecord>> queryOderAssineeeRecord({
+Stream<List<ResturantRecord>> queryResturantRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      OderAssineeeRecord.collection,
-      OderAssineeeRecord.fromSnapshot,
+      ResturantRecord.collection,
+      ResturantRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<OderAssineeeRecord>> queryOderAssineeeRecordOnce({
+Future<List<ResturantRecord>> queryResturantRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      OderAssineeeRecord.collection,
-      OderAssineeeRecord.fromSnapshot,
+      ResturantRecord.collection,
+      ResturantRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-/// Functions to query UserRecords (as a Stream and as a Future).
-Future<int> queryUserRecordCount({
+/// Functions to query OrderAssineeRecords (as a Stream and as a Future).
+Future<int> queryOrderAssineeRecordCount({
   Query Function(Query)? queryBuilder,
   int limit = -1,
 }) =>
     queryCollectionCount(
-      UserRecord.collection,
+      OrderAssineeRecord.collection,
       queryBuilder: queryBuilder,
       limit: limit,
     );
 
-Stream<List<UserRecord>> queryUserRecord({
+Stream<List<OrderAssineeRecord>> queryOrderAssineeRecord({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollection(
-      UserRecord.collection,
-      UserRecord.fromSnapshot,
+      OrderAssineeRecord.collection,
+      OrderAssineeRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
     );
 
-Future<List<UserRecord>> queryUserRecordOnce({
+Future<List<OrderAssineeRecord>> queryOrderAssineeRecordOnce({
   Query Function(Query)? queryBuilder,
   int limit = -1,
   bool singleRecord = false,
 }) =>
     queryCollectionOnce(
-      UserRecord.collection,
-      UserRecord.fromSnapshot,
+      OrderAssineeRecord.collection,
+      OrderAssineeRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,

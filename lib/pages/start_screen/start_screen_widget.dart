@@ -23,6 +23,8 @@ class _StartScreenWidgetState extends State<StartScreenWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => StartScreenModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -139,7 +141,7 @@ class _StartScreenWidgetState extends State<StartScreenWidget> {
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('OrderConfirm');
+                          context.pushNamed('HomePage');
                         },
                         text: 'Register',
                         options: FFButtonOptions(

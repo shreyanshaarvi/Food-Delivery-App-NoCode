@@ -16,66 +16,25 @@ import 'package:provider/provider.dart';
 class OrderConfirmModel extends FlutterFlowModel<OrderConfirmWidget> {
   ///  Local state fields for this page.
 
-  Color? colour;
-
-  List<LatLng> outputlatlng = [];
-  void addToOutputlatlng(LatLng item) => outputlatlng.add(item);
-  void removeFromOutputlatlng(LatLng item) => outputlatlng.remove(item);
-  void removeAtIndexFromOutputlatlng(int index) => outputlatlng.removeAt(index);
-  void insertAtIndexInOutputlatlng(int index, LatLng item) =>
-      outputlatlng.insert(index, item);
-  void updateOutputlatlngAtIndex(int index, Function(LatLng) updateFn) =>
-      outputlatlng[index] = updateFn(outputlatlng[index]);
-
-  List<DocumentReference> refNew = [];
-  void addToRefNew(DocumentReference item) => refNew.add(item);
-  void removeFromRefNew(DocumentReference item) => refNew.remove(item);
-  void removeAtIndexFromRefNew(int index) => refNew.removeAt(index);
-  void insertAtIndexInRefNew(int index, DocumentReference item) =>
-      refNew.insert(index, item);
-  void updateRefNewAtIndex(int index, Function(DocumentReference) updateFn) =>
-      refNew[index] = updateFn(refNew[index]);
-
-  int index = 0;
-
-  int? rideramount = 0;
-
-  bool isColpmpleted = false;
-
-  double range = 2.0;
+  double range = 1.0;
 
   double? riderDistance;
 
-  List<DocumentReference> riderNearby = [];
-  void addToRiderNearby(DocumentReference item) => riderNearby.add(item);
-  void removeFromRiderNearby(DocumentReference item) =>
-      riderNearby.remove(item);
-  void removeAtIndexFromRiderNearby(int index) => riderNearby.removeAt(index);
-  void insertAtIndexInRiderNearby(int index, DocumentReference item) =>
-      riderNearby.insert(index, item);
-  void updateRiderNearbyAtIndex(
-          int index, Function(DocumentReference) updateFn) =>
-      riderNearby[index] = updateFn(riderNearby[index]);
+  bool isriderAssigned = false;
 
-  bool? iloopWorking;
-
-  int outorange = 0;
-
-  int numberOfRun = 0;
+  int index = 0;
 
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  ResturnatNameRecord? returnat;
+  List<RiderRecord>? riderList;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  List<RiderRecord>? rider;
+  ResturantRecord? resturantLocation;
   // Stores action output result for [Backend Call - API (DistanceMatrix )] action in Button widget.
-  ApiCallResponse? apiResultyak;
-  // Stores action output result for [Backend Call - Create Document] action in Button widget.
-  OderAssineeeRecord? docOrder;
+  ApiCallResponse? apiResulte9g;
   // Stores action output result for [Firestore Query - Query a collection] action in Button widget.
-  OderAssineeeRecord? orderAsinee;
+  List<OrderAssineeRecord>? riderAcception;
 
   /// Initialization and disposal methods.
 

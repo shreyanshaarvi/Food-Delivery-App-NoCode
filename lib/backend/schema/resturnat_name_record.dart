@@ -26,15 +26,9 @@ class ResturnatNameRecord extends FirestoreRecord {
   LatLng? get location => _location;
   bool hasLocation() => _location != null;
 
-  // "riderRef" field.
-  List<DocumentReference>? _riderRef;
-  List<DocumentReference> get riderRef => _riderRef ?? const [];
-  bool hasRiderRef() => _riderRef != null;
-
   void _initializeFields() {
     _resturant = snapshotData['resturant'] as String?;
     _location = snapshotData['location'] as LatLng?;
-    _riderRef = getDataList(snapshotData['riderRef']);
   }
 
   static CollectionReference get collection =>
@@ -91,15 +85,12 @@ class ResturnatNameRecordDocumentEquality
 
   @override
   bool equals(ResturnatNameRecord? e1, ResturnatNameRecord? e2) {
-    const listEquality = ListEquality();
-    return e1?.resturant == e2?.resturant &&
-        e1?.location == e2?.location &&
-        listEquality.equals(e1?.riderRef, e2?.riderRef);
+    return e1?.resturant == e2?.resturant && e1?.location == e2?.location;
   }
 
   @override
   int hash(ResturnatNameRecord? e) =>
-      const ListEquality().hash([e?.resturant, e?.location, e?.riderRef]);
+      const ListEquality().hash([e?.resturant, e?.location]);
 
   @override
   bool isValidKey(Object? o) => o is ResturnatNameRecord;

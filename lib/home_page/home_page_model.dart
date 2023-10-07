@@ -14,9 +14,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for TextField widget.
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
   // State field(s) for ChoiceChips widget.
   String? choiceChipsValue1;
   FormFieldController<List<String>>? choiceChipsValueController1;
@@ -30,7 +27,6 @@ class HomePageModel extends FlutterFlowModel<HomePageWidget> {
 
   void dispose() {
     unfocusNode.dispose();
-    textController?.dispose();
   }
 
   /// Action blocks are added here.
